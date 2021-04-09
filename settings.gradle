@@ -1,0 +1,3 @@
+include ':librxaoppermission'
+include ':app'
+rootProject.name = "RxAopPermission"

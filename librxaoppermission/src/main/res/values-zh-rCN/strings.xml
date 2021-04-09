@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="dialog_title">提示</string>
+    <string name="dialog_Message">请前往权限管理页手动打开相关权限，否则无法运行此功能</string>
+    <string name="dialog_Positivetext">设置</string>
+    <string name="dialog_Negativetext">退出</string>
+
+</resources>

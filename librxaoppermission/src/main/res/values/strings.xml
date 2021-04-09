@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="dialog_title">Hint</string>
+    <string name="dialog_Message">Please go to the permission management page to manually open the relevant permissions, otherwise this function cannot be run</string>
+    <string name="dialog_Positivetext">Setting</string>
+    <string name="dialog_Negativetext">Quit</string>
+
+</resources>
