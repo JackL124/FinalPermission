@@ -32,7 +32,7 @@ RxPermissions基础进行修改并加入kotlin协程+suspend函数实现
 ```
 apply plugin: 'android-aspectjx'
 ```
-如集成aspectjx报错或想更多aspectjx相关内容，请移步至[AspectJX](https://github.com/HujiangTechnology/gradle_plugin_android_aspectjx)
+如集成aspectjx报错或想了解更多aspectjx相关内容，请移步至[AspectJX](https://github.com/HujiangTechnology/gradle_plugin_android_aspectjx)
 
 #### 2.添加 Gradle 依赖
 在项目根目录的build.gradle 中添加
