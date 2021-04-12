@@ -4,9 +4,9 @@ import android.Manifest
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.jackl.librxaoppermission.RxPermission.Permissions
-import com.jackl.librxaoppermission.annotation.RequestPermission
-import com.jackl.librxaoppermission.enum.PermissionStatus
+import com.jackl.finalpermission.RxPermission.Permissions
+import com.jackl.finalpermission.annotation.RequestPermission
+import com.jackl.finalpermission.enum.PermissionStatus
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
      * 注意： 1 入参需要设置在第一个参数位置，否则无效  2 Permissions和 isBlock互斥 只能二选一，使用Permissions后isBlock属性无效
      * */
     @RequestPermission(Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE)
-    private fun RequestPermissionForResult(permissions: Permissions=Permissions()) {
+    private fun RequestPermissionForResult(permissions: Permissions =Permissions()) {
         Log.d(TAG,"permission=${permissions}")
         when(permissions.finalStatus){
             PermissionStatus.GRANTED.name->{
