@@ -46,7 +46,7 @@ repositories {
  在app build.gradle 中添加依赖
 ```
  dependencies {
- 	        implementation 'com.github.JackL124:FinalPermission:v1.0.0'
+ 	        implementation 'com.github.JackL124:FinalPermission:v1.0.1'
  	}
 ```
 #### 3.使用
