@@ -1,6 +1,9 @@
 package com.jackl.finalpermission.aspect
 
 import android.app.Activity
+import android.content.Context
+import android.view.View
+import androidx.fragment.app.Fragment
 import com.jackl.finalpermission.PermissionEngine
 import com.jackl.finalpermission.RxPermission.Permissions
 import com.jackl.finalpermission.annotation.RequestPermission
@@ -32,15 +35,22 @@ class PermissionAspect {
      * */
     @Around("Pointcut(permission)")
     fun AroundAdvice(joinPoint: ProceedingJoinPoint, permission: RequestPermission) {
-        val targetActivity = joinPoint.target as Activity
+        var targetContext:Context?=null
+        if(joinPoint.target is Activity)
+            targetContext = joinPoint.target as Activity
+        else if(joinPoint.target is Fragment){
+            targetContext = (joinPoint.target as Fragment).context
+        }else if (joinPoint.target is View)
+            targetContext = (joinPoint.target as View).context
+
         val arg = joinPoint.args
         val hasArg =arg!=null && arg.size>0 && arg[0]!=null && !arg[0].equals("") && arg[0] is Permissions
-        if(permission.perms.isEmpty() || targetActivity==null || targetActivity.isDestroyed || targetActivity.isFinishing){
+        if(permission.perms.isEmpty() || targetContext==null ){
             return
         }
         GlobalScope.launch(Dispatchers.Main){
             //如果已经申请过权限,执行执行原始函数
-            val  weakActivity=WeakReference(targetActivity)
+            val  weakActivity=WeakReference(targetContext)
             if (PermissionEngine.checkPermissions(weakActivity, *permission.perms!!)){
                 if(hasArg){
                     val mPermissions = arg[0] as Permissions

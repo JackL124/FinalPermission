@@ -1,6 +1,7 @@
 package com.jackl.finalpermission.RxPermission
 
 import android.app.Activity
+import android.content.Context
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import com.jackl.finalpermission.enum.PermissionStatus
@@ -14,7 +15,7 @@ import java.util.*
  * rxjava权限申请类
  * Created jackl on 2021/4/7
  */
-internal class RxPermissions(activity: WeakReference<Activity>) {
+internal class RxPermissions(context: WeakReference<Context>) {
 
     var mRxPermissionsFragment: Lazy<RxPermissionsFragment>? = null
 
@@ -24,7 +25,7 @@ internal class RxPermissions(activity: WeakReference<Activity>) {
     }
 
     init {
-        mRxPermissionsFragment = getLazySingleton((activity.get()as FragmentActivity).supportFragmentManager)
+        mRxPermissionsFragment = getLazySingleton((context.get()as FragmentActivity).supportFragmentManager)
     }
 
     private fun getLazySingleton(fragmentManager: FragmentManager): Lazy<RxPermissionsFragment> {
